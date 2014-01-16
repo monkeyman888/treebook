@@ -16,9 +16,14 @@
 		</div>
 	</nav>
 
-	<div class="container">
+	<div class="container">	
+		<!-- added as part of devise installation -->
+		<p class="notice"><%= notice %></p> 
+    	<p class="alert"><%= alert %></p>
+
 		<%= yield %>
 	</div>
+
 
 </body>
 </html>
