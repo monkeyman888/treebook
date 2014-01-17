@@ -2,7 +2,12 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @status.name %>
+
+<% if !@status.user.nil? %>
+  	<%= @status.user.full_name %>
+  <% else %>
+  	@status.user is nil!
+  	<% end %> 
 </p>
 
 <p>
