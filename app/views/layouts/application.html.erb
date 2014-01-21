@@ -30,10 +30,32 @@
 	</nav>
 
 	<div class="container">	
-		<!-- added as part of devise installation -->
-		<p class="notice"><%= notice %></p> 
-    	<p class="alert"><%= alert %></p>
 
+		<% flash.each do |type, message| %>
+			<div class="alert <%= flash_class type %>">
+				<!-- flash_class method can be found in application_helper -->
+				<button class="close" data-dismiss="alert">x</button>
+				<%= message %>
+
+			</div>
+		<% end %>
+
+<!-- 		<% if flash[:notice] %>
+			<div class="alert alert-success">
+				<button class="close" data-dismiss="alert">x</button>
+				<%= flash[:notice] %>
+
+			</div>
+		<% end -%>
+
+		<% if flash[:alert] %>
+			<div class="alert alert-danger">
+				<button class="close" data-dismiss="alert">x</button>
+				<%= flash[:alert] %>
+
+			</div>
+		<% end -%>
+ -->
 		<%= yield %>
 	</div>
 
