@@ -8,6 +8,10 @@ group :development, :test do
 	gem 'sqlite3'
 end
 
+group :production do
+	gem 'pg'
+end
+
 gem 'devise'
 gem 'protected_attributes' #added to enable using attr_accessible in user.rb...
 gem 'simple_form'
