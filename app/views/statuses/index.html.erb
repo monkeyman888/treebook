@@ -6,23 +6,32 @@
 
 <% @statuses.each do |status| %>
 
+<!-- need to review new bootstrap classes to get formatting to work -->
   <div class = "status">
-    <strong>
-      <% if !status.user.nil? %>
-        <%= status.user.full_name %>
-      <% else %>
-        status.user is nil!
-      <% end %> 
-    </strong>
+  <div class = "row">  
+      <div class="span1">
+        <%= image_tag status.user.gravatar_url %>
+      </div>
 
-    <p><%= status.content %></p>
+      <div class="span7">
+        <strong>
+          <% if !status.user.nil? %>
+            <%= status.user.full_name %>
+          <% else %>
+            status.user is nil!
+          <% end %> 
+        </strong>
 
-    <div class="meta">
-      <%= link_to time_ago_in_words(status.created_at) + " ago", status %>
-      <span class="admin">
-        | <%= link_to "Edit", edit_status_path(status) %> |
-        <%= link_to "Delete", status, method: :delete, data: { confirm: "Are you sure you want to delete?"} %>
-      </span>
+        <p><%= status.content %></p>
+
+        <div class="meta">
+          <%= link_to time_ago_in_words(status.created_at) + " ago", status %>
+          <span class="admin">
+            | <%= link_to "Edit", edit_status_path(status) %> |
+            <%= link_to "Delete", status, method: :delete, data: { confirm: "Are you sure you want to delete?"} %>
+          </span>
+        </div>
+      </div>
     </div>
   </div>
 
